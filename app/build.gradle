@@ -1,0 +1,33 @@
+apply plugin: "com.android.application"
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "de.xnetsystems.scanner"
+        minSdkVersion 21
+        // noinspection OldTargetApi
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+    packagingOptions {
+        exclude "META-INF/DEPENDENCIES"
+    }
+    aaptOptions {
+        cruncherEnabled = false
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ["*.jar"], dir: "lib")
+    implementation "com.android.support:appcompat-v7:27.1.1"
+    implementation "com.android.support.constraint:constraint-layout:1.1.3"
+}
